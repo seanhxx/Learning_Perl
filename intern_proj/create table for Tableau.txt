@@ -1,0 +1,56 @@
+
+create external table if not exists eng_mti_ww_be_msb_test_quality.report_variance (
+  LOT_ID string, 
+  STEP_ID string,
+  DESIGN_ID string, 
+  PACKAGE_TYPE string,
+  LEAD_COUNT string,
+  PACKAGE_HEIGHT string,
+  PACKAGE_LENGTH string,
+  PACKAGE_WIDTH string,
+  PRODUCT_FAMILY string,
+  TESTER_ID string,
+  LOT_QTY string,
+  reason string,
+  action string,
+  quantity string,
+  date_time_local string,
+  ww string,
+  partition_date string
+  )
+
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+
+LOCATION '/eng/mti/ww/be/msb/test_quality/report_variance'
+
+TBLPROPERTIES ('skip.header.line.count' = '1'); 
+
+
+
+
+
+create external table if not exists eng_mti_ww_be_msb_test_quality.report_totallot (
+  LOT_ID string, 
+  STEP_ID string,
+  DESIGN_ID string, 
+  PACKAGE_TYPE string, 
+  LEAD_COUNT string,
+  PACKAGE_HEIGHT string, 
+  PACKAGE_LENGTH string, 
+  PACKAGE_WIDTH string,
+  PRODUCT_FAMILY string,
+  TESTER_ID string,
+  LOT_QTY string,
+  date_time_local string,
+  ww string,
+  partition_date string
+  )
+
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+
+LOCATION '/eng/mti/ww/be/msb/test_quality/report_totallot'
+
+TBLPROPERTIES ('skip.header.line.count' = '1'); 
+
+drop table if exists eng_mti_ww_be_msb_test_quality.report_variance;
+drop table if exists eng_mti_ww_be_msb_test_quality.report_totallot;
